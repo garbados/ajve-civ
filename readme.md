@@ -1,8 +1,11 @@
 # AjveCiv
 
+[![Build Status](https://travis-ci.org/garbados/ajve-civ.svg?branch=master)](https://travis-ci.org/garbados/ajve-civ)
+[![npm version](https://badge.fury.io/js/ajve-civ.svg)](http://badge.fury.io/js/ajve-civ)
+
 Guide an engineered people as they settle an alien planet.
 
-To play, use [node]():
+To play, use [node](https://nodejs.org/):
 
 	npm install -g ajve-civ
 	ajve-civ
@@ -212,11 +215,11 @@ This is what you get from `require('ajve-civ')`:
 
 ## Tests
 
-	git clone [repo]
+	git clone https://github.com/garbados/ajve-civ.git
 	cd ajve-civ
 	npm install
 	npm test
 
 ## License
 
-Game, code, et al is provided under [ISC]().
+Game, code, et al is provided under [ISC](http://en.wikipedia.org/wiki/ISC_license).

@@ -65,8 +65,6 @@ TODO wtf is consent good for
 
 Every 10 turns, natural events, scientific revelations, and other revolutionary phenomena will provoke your society to consult its three highest values and choose among them. The chosen value increases by 2, while the others decrease by 1 each.
 
-Inflections bring all dispositions closer to 0 by 2.
-
 This forces societies to specialize in the face of hardship.
 
 ### Nation

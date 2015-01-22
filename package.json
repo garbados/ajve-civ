@@ -4,7 +4,8 @@
   "description": "Guide an engineered people as they settle an alien planet.",
   "main": "index.js",
   "scripts": {
-    "test": "jshint bin lib test index.js && mocha -R spec --recursive"
+    "test": "jshint bin lib test index.js && mocha -R spec --recursive",
+    "todo": "grep -r TODO bin lib test index.js"
   },
   "bin": {
     "ajve-civ": "./bin/index.js"

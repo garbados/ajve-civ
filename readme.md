@@ -1,7 +1,9 @@
 # AjveCiv
 
 [![Build Status](https://travis-ci.org/garbados/ajve-civ.svg?branch=master)](https://travis-ci.org/garbados/ajve-civ)
+[![Coverage Status](https://coveralls.io/repos/garbados/ajve-civ/badge.svg)](https://coveralls.io/r/garbados/ajve-civ)
 [![npm version](https://badge.fury.io/js/ajve-civ.svg)](http://badge.fury.io/js/ajve-civ)
+
 
 Guide an engineered people as they settle an alien planet.
 

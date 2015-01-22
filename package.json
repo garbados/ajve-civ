@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jshint bin lib test index.js && mocha -R spec --recursive",
-    "coveralls": "jscoverage lib cov-lib && mocha -R mocha-lcov-reporter --recursive | coveralls",
-    "cov": "jscoverage lib cov-lib && mocha -R json-cov --recursive > coverage.json",
+    "coveralls": "jscoverage lib cov-lib && COVERAGE=true mocha -R mocha-lcov-reporter --recursive | coveralls",
+    "cov": "jscoverage lib cov-lib && COVERAGE=true mocha -R json-cov --recursive > coverage.json",
     "todo": "grep -r TODO bin lib test index.js"
   },
   "bin": {
@@ -36,7 +36,8 @@
     "coveralls": "^2.11.2",
     "jscoverage": "^0.5.9",
     "jshint": "^2.6.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "dependencies": {
     "async": "^0.9.0"

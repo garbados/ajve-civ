@@ -14,4 +14,4 @@ civ
 .play({
   spectator: true
 })
-.report()
+.report();

@@ -7,7 +7,9 @@
     "test": "jshint bin lib test index.js && mocha -R spec --recursive",
     "coveralls": "jscoverage lib cov-lib && COVERAGE=true mocha -R mocha-lcov-reporter --recursive | coveralls",
     "cov": "jscoverage lib cov-lib && COVERAGE=true mocha -R json-cov --recursive > coverage.json",
-    "todo": "grep -r TODO bin lib test index.js"
+    "cov-html": "jscoverage lib cov-lib && COVERAGE=true mocha -R html-cov --recursive > coverage.html",
+    "todo": "grep -r TODO bin lib test index.js",
+    "start": "node ./bin/index.js"
   },
   "bin": {
     "ajve-civ": "./bin/index.js"
@@ -40,6 +42,7 @@
     "mocha-lcov-reporter": "0.0.1"
   },
   "dependencies": {
-    "async": "^0.9.0"
+    "async": "^0.9.0",
+    "q": "^1.1.2"
   }
 }

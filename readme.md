@@ -18,6 +18,8 @@ Alternatively, you can write AI to play for you, or even worlds and scenarios of
 
 You are a guiding principle, and so set the values of your people. They do the rest. Specifically, they affect their environment, and other developing peoples.
 
+At the end of 100 turns, whichever society has the greatest Yield and Population wins.
+
 ### Basic concepts
 
 * Values: The lived priorities of your people.
@@ -25,7 +27,6 @@ You are a guiding principle, and so set the values of your people. They do the r
 * Inflections: Critical, momentary choices that alter or advance your values.
 * Nation: The environment of your people.
 * Globe: The environment of the world your people inhabit.
-* Diplomacy: Interacting with other forces. Can result in war, trade, etc.
 
 ### Values
 
@@ -44,11 +45,11 @@ Every turn, your society consults your values in order to select an action. In o
 
 #### Conquer
 
-Another society's yield drops by (Conquer), and your yield increases by (Conquer). Reduces your society's population by 1. Reduces that society's disposition towards you by 5, and global disposition towards you by 1.
+Another society's (whichever your people like least) yield drops by (Conquer), and your yield increases by (Conquer). Reduces your society's population by 1. Reduces that society's disposition towards you by 5, and global disposition towards you by 1.
 
 #### Exchange
 
-Your society's yield increases by your (Exchange) and another society's yield increases by their (Exchange). Increases that society's disposition towards you by 1.
+Your society's yield increases by your (Exchange) and another society's (whichever your people like most) yield increases by their (Exchange). Increases that society's disposition towards you by 1.
 
 #### Discover
 
@@ -64,7 +65,7 @@ Your society's yield increases by (Develop * 3) but global yield decreases by (D
 
 #### Consent
 
-TODO wtf is consent good for
+Global yield increases by (Consent) and global disposition toward you increases by (Consent).
 
 ### Inflections
 
@@ -130,7 +131,7 @@ The arguments to both `turn` and `inflection` are the same:
 
 * `choices`: an array of strings, one of which must be passed to `done`. Each represents the values you must choose between. It is a randomly selected subset of the fields of `world.societies[you].values`.
 * `world`: an object containing the state of the world. See the next section for an example; it's quite large.
-* `done`: a function that takes two arguments: an error (if any), and your choice for that turn or inflection point. If that choice would necessitate a target society, enter as a third argument that society's index `i`, corresponding to `world.societies[i]`.
+* `done`: a function that takes two arguments: an error (if any), and your choice for that turn or inflection point.
 
 ### The World
 

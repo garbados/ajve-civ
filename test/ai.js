@@ -1,3 +1,4 @@
+var StdOutFixture = require('fixture-stdout');
 var chai = require('chai');
 var async = require('async');
 var ai;
@@ -46,7 +47,24 @@ describe('ai', function () {
     });
   });
   describe('repl', function () {
-    // TODO repl tests
-    it.skip('should turn stdin into player choices', function () { });
+    before(function () {
+      this.repl = ai.repl;
+      this.choices = ['discover', 'expand', 'consent'];
+      this.world = {
+        yield: 3,
+        feels: [],
+        societies: [{
+          nation: {
+            yield: 3,
+            population: 3,
+          },
+          virtues: []
+        }]
+      };
+    });
+
+    it.skip('should turn stdin into player choices (turn)', function () { });
+
+    it.skip('should turn stdin into player choices (inflection)', function () { });
   });
 });

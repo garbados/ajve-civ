@@ -10,6 +10,7 @@ describe('AjveCiv', function () {
     var players = Object.keys(civ.ai.basic).map(function (key) {
       return civ.ai.basic[key];
     });
+    
     civ
     .game(players)
     .play()
@@ -19,6 +20,7 @@ describe('AjveCiv', function () {
     })
     .fail(done);
   });
+
   it.skip('should play a game with custom AI', function () { });
   it.skip('should play a game with a custom ruleset', function () { });
 });

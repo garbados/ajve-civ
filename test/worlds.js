@@ -9,6 +9,11 @@ else
 
 var WORLD = {
   yield: 3,
+  feels: [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ],
   societies: [
     {
       values: {
@@ -22,10 +27,6 @@ var WORLD = {
       nation: {
         yield: 3,
         population: 3
-      },
-      dispositions: {
-        of: [0, 0, 0],
-        from: [0, 0, 0],
       }
     }, {
       values: {
@@ -39,10 +40,6 @@ var WORLD = {
       nation: {
         yield: 3,
         population: 3
-      },
-      dispositions: {
-        of: [0, 0, 0],
-        from: [0, 0, 0],
       }
     }, {
       values: {
@@ -56,10 +53,6 @@ var WORLD = {
       nation: {
         yield: 3,
         population: 3
-      },
-      dispositions: {
-        of: [0, 0, 0],
-        from: [0, 0, 0],
       }
     }
   ]
@@ -82,16 +75,15 @@ describe('worlds', function () {
           done();
         });
       });
-      it('consent raises global yield and improves global dispositions', function () {
+      it('consent raises global yield and improves global feels', function () {
         var self = this;
         original.turn(['consent'], this.world, function (err, world) {
           if (err) return done(err);
           chai.expect(world.yield).to.be.above(self.world.yield);
-          world.societies[0].dispositions.from.forEach(function (disposition, i) {
-            chai.expect(disposition).to.be.above(0);
-          });
-          world.societies.slice(1).forEach(function (society) {
-            chai.expect(society.dispositions.of[0]).to.be.above(0);
+          // raises global sentiment towards player
+          world.feels.forEach(function (feels, i) {
+            if (i !== 0)
+              chai.expect(feels[0]).to.be.above(0);
           });
         });
       });
@@ -126,6 +118,9 @@ describe('worlds', function () {
           .to.be.above(self.world.societies[0].nation.yield);
           chai.expect(world.societies[1].nation.yield + world.societies[2].nation.yield)
           .to.be.above(self.world.societies[1].nation.yield + self.world.societies[2].nation.yield);
+
+          chai.expect(world.feels[1][0] + world.feels[2][0]).to.be.above(0);
+
           done();
         });
       });
@@ -133,17 +128,15 @@ describe('worlds', function () {
         var self = this;
         original.turn(['conquer'], this.world, function (err, world) {
           if (err) return done(err);
-          // one yield up, another down
+          // one yield up
           chai.expect(world.societies[0].nation.yield)
           .to.be.above(self.world.societies[0].nation.yield);
+          // one yield down
           chai.expect(world.societies[1].nation.yield + world.societies[2].nation.yield)
           .to.be.below(self.world.societies[1].nation.yield + self.world.societies[2].nation.yield);
           // global disposition ramifications
-          world.societies[0].dispositions.from.forEach(function (disposition, i) {
-            if (i !== 0) chai.expect([-1, -5]).to.contain(disposition);
-          });
-          world.societies.slice(1).forEach(function (society) {
-            chai.expect([-1, -5]).to.contain(society.dispositions.of[0]);
+          world.feels.slice(1).forEach(function (feels) {
+            chai.expect([-1, -5]).to.contain(feels[0]);
           });
 
           done();
@@ -159,8 +152,9 @@ describe('worlds', function () {
         original.turn(['consent', 'discover', 'expand'], this.world, function (err, world) {
           if (err) return done(err);
 
-          world.societies[0].dispositions.from.forEach(function (disposition) {
-            chai.expect(disposition).to.be.above(0);
+          world.feels.forEach(function (feels, i) {
+            if (i !== 0)
+              chai.expect(feels[0]).to.be.above(0);
           });
           chai.expect(world.yield).to.be.above(self.world.yield);
           chai.expect(world.societies[1].nation.yield)

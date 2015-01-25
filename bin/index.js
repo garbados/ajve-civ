@@ -4,7 +4,7 @@ var pjson = require('../package.json');
 var civ = require('..');
 var argv = require('commander')
    .version(pjson.version)
-   .option('-r, --report', 'specify report format: \'json\' or a filepath')
+   .option('-r, --report [type]', 'specify report format: \'json\' or a filepath')
    .option('-p, --players [list]', 'specify which AI should play, ex: -p repl,basic.discover')
    .parse(process.argv);
 

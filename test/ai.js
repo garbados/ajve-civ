@@ -46,6 +46,7 @@ describe('ai', function () {
     });
   });
   describe('repl', function () {
-
+    // TODO repl tests
+    it.skip('should turn stdin into player choices', function () { });
   });
 });

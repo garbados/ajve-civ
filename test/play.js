@@ -15,7 +15,7 @@ describe('play', function () {
     play(original, [players], function (err, turns) {
       var first_turn = turns[0];
       var last_turn = turns.slice(-1)[0];
-      chai.expect(first_turn.yield).to.be.above(last_turn.yield);
+      chai.expect(first_turn.yield).to.not.equal(last_turn.yield);
       done();
     });
   });

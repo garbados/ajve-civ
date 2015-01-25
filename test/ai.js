@@ -23,9 +23,10 @@ describe('ai', function () {
       var players = choices.map(function (value) { return ai.basic[value]; });
       var world = {};
 
-      async.map(players, function (player, done) {
-        player.turn(choices, world, done);
-      }, function (err, players_choices) {
+      var tasks = players.map(function (player, i) {
+        return player.turn.bind(player, choices, i, world);
+      });
+      async.parallel(tasks, function (err, players_choices) {
         chai.expect(players_choices).to.deep.equal(choices);
         done();
       });
@@ -35,9 +36,10 @@ describe('ai', function () {
       var players = choices.map(function (value) { return ai.basic[value]; });
       var world = {};
 
-      async.map(players, function (player, done) {
-        player.inflection(choices, world, done);
-      }, function (err, players_choices) {
+      var tasks = players.map(function (player, i) {
+        return player.inflection.bind(player, choices, i, world);
+      });
+      async.parallel(tasks, function (err, players_choices) {
         chai.expect(players_choices).to.deep.equal(choices);
         done();
       });

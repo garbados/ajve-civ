@@ -25,9 +25,15 @@ if (argv.players) {
     }
   });
 } else {
-  players = Object.keys(civ.ai.basic).map(function (value) {
-    return civ.ai.basic[value];
-  });
+  players = [
+    civ.ai.repl,
+    civ.ai.basic.consent,
+    civ.ai.basic.conquer,
+    civ.ai.basic.develop,
+    civ.ai.basic.discover,
+    civ.ai.basic.exchange,
+    civ.ai.basic.expand
+  ];
 }
 
 civ

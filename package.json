@@ -1,7 +1,7 @@
 {
   "name": "ajve-civ",
-  "version": "0.0.2",
-  "description": "Guide an engineered people as they settle an alien planet.",
+  "version": "0.1.0",
+  "description": "Guide an engineered people as they settle an alien world.",
   "main": "index.js",
   "scripts": {
     "test": "jshint bin lib test index.js && mocha -R spec --recursive",

@@ -10,12 +10,12 @@ Guide an engineered people as they settle an alien world.
 To play, use [node](https://nodejs.org/):
 
     npm install -g ajve-civ
-    # watch basic AI go at it
-    ajve-civ
     # fight against the AI yourself
-    ajve-civ -p repl,basic
+    ajve-civ
+    # watch basic AI go at it
+    ajve-civ -p basic
     # output the game report in raw json
-    ajve-civ -r json > report.json
+    ajve-civ -r report.json
     # need more help?
     ajve-civ --help
 

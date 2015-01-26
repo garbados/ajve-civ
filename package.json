@@ -1,6 +1,6 @@
 {
   "name": "ajve-civ",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Guide an engineered people as they settle an alien world.",
   "main": "index.js",
   "scripts": {

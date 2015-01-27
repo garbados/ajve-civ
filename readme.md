@@ -12,8 +12,8 @@ To play, use [node](https://nodejs.org/):
     npm install -g ajve-civ
     # fight against the AI yourself
     ajve-civ
-    # watch basic AI go at it
-    ajve-civ -p basic
+    # watch 40 basic AI battle for supremacy
+    ajve-civ -p basic,basic2,basic3
     # output the game report in raw json
     ajve-civ -r report.json
     # need more help?
@@ -76,7 +76,7 @@ Your society's population increases by your devotion to Expand. If your populati
 
 #### Develop
 
-Your society's yield increases by 3 times your devotion to Develop, but global yield decreases by your devotion to Develop. Global disposition towards you drops by 1.
+Your society's yield increases by 2 times your devotion to Develop, but global yield decreases by your devotion to Develop. Global disposition towards you drops by 1.
 
 #### Consent
 

@@ -7,6 +7,7 @@ var argv = require('commander')
    .option('-r, --report <type>', 'specify report format: \'json\' or a filepath')
    .option('-p, --players <list>', 'specify which AI should play, ex: -p repl,basic.discover')
    .option('-d, --duration <number>', 'specify how long the game should be')
+   .option('-i, --no-inflections', 'turn off inflections, if that\'s your thing')
    .parse(process.argv);
 
 var players;
@@ -43,5 +44,8 @@ if (argv.players) {
 
 civ
 .game.apply(civ, players)
-.play()
+.play({
+  duration: argv.duration || 100,
+  has_inflections: !argv['no-inflections'],
+})
 .report(argv.report);

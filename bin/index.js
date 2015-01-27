@@ -4,13 +4,18 @@ var pjson = require('../package.json');
 var civ = require('..');
 var argv = require('commander')
    .version(pjson.version)
-   .option('-r, --report [type]', 'specify report format: \'json\' or a filepath')
-   .option('-p, --players [list]', 'specify which AI should play, ex: -p repl,basic.discover')
+   .option('-r, --report <type>', 'specify report format: \'json\' or a filepath')
+   .option('-p, --players <list>', 'specify which AI should play, ex: -p repl,basic.discover')
+   .option('-d, --duration <number>', 'specify how long the game should be')
    .parse(process.argv);
 
 var players;
 if (argv.players) {
-  players = argv.players.split(',').map(function (player_str) {
+  players = argv.players.split(',')
+  .filter(function (str) {
+    return !!str;
+  })
+  .map(function (player_str) {
     if (player_str in civ.ai) {
       if (!civ.ai[player_str].turn) {
         return Object.keys(civ.ai[player_str]).map(function (value) {
@@ -37,6 +42,6 @@ if (argv.players) {
 }
 
 civ
-.game(players)
+.game.apply(civ, players)
 .play()
 .report(argv.report);
